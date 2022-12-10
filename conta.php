@@ -3,7 +3,7 @@
     {
     Public $cpfTitular;
     public $nomeTitular;
-    public $saldo;
+    private $saldo;
     
 
     //Metodo saque
@@ -29,14 +29,18 @@
     public function transferir(float $valorAtransferir, conta $contaDestino): void
     {
         if ($valorAtransferir > $this->saldo) {
-            echo "Transferencia superior ao saldo em conta de: ${valorAtransferir}R$ para transferencia";
+            echo "Transferencia superior ao saldo em conta (R$$this->saldo), Valor transferência: R$${valorAtransferir}" . PHP_EOL;
             return;
         }
         $this->saque($valorAtransferir);
         $contaDestino->valorDeposito($valorAtransferir);
+        echo 'Foi realizado a transferência de '. $valorAtransferir . ' com sucesso';
 
     }
+    public function exibeSaldo() :float {
+        return $this->saldo
+    ;} 
+    
 }
-    ;
 //require 'conta.php';
 ?>
