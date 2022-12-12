@@ -1,8 +1,8 @@
 <?php
     class conta
     {
-    Public $cpfTitular;
-    public $nomeTitular;
+    private $cpfTitular;
+    private $nomeTitular;
     private $saldo;
     
 
@@ -10,7 +10,7 @@
     public function saque(float $valorSaque): void
     {
         if ($valorSaque > $this->saldo) {
-            echo "Seu saldo é inferior à ${valorSaque}R$ para sacar";
+            echo "Seu saldo é inferior à ${valorSaque}R$ para sacar" . PHP_EOL;
             return;
         }
         $this->saldo -= $valorSaque;
@@ -20,7 +20,7 @@
     public function valorDeposito(float $valorDeposito): void
     {
         if ($valorDeposito < 0) {
-            echo "Transaçaõ de valor ${valorDeposito}R$ não autorizada";
+            echo "Transaçaõ de valor ${valorDeposito}R$ não autorizada, valor negativo." . PHP_EOL;
             return;
         }
         $this->saldo += $valorDeposito; 
@@ -34,11 +34,25 @@
         }
         $this->saque($valorAtransferir);
         $contaDestino->valorDeposito($valorAtransferir);
-        echo 'Foi realizado a transferência de '. $valorAtransferir . ' com sucesso';
+        echo 'Foi realizado a transferência de '. $valorAtransferir . ' com sucesso' . PHP_EOL;
 
     }
+    public function alteraNome($nome) {
+        $this->nomeTitular = $nome;
+    }
+    public function alteraCPF($cpf) {
+        $this->cpfTitular = $cpf;
+    }
+
+
     public function exibeSaldo() :float {
         return $this->saldo
+    ;} 
+    public function exibeCPF() :string {
+        return $this->cpfTitular
+    ;} 
+    public function exibdeNomeTitular() :string {
+        return $this->nomeTitular
     ;} 
     
 }
