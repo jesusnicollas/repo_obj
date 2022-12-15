@@ -12,6 +12,7 @@
     $usuarioDois->valorDeposito(10000); 
     $usuarioDois->alteraNome('Italo de jesus');
     $usuarioDois->alteraCPF('444.444.444-10');
+    var_dump( $usuarioDois);
     $usuarioDois->alteraCPF('555.555.404-10');
     $usuarioDois->transferir(5000, $usuarioUm);
     var_dump( $usuarioDois);

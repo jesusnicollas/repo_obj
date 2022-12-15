@@ -1,10 +1,10 @@
 <?php
-    class conta
-    {
+class conta
+{
     private $cpfTitular;
     private $nomeTitular;
-    private $saldo;
-    
+    private $saldo = 0;
+
 
     //Metodo saque
     public function saque(float $valorSaque): void
@@ -14,17 +14,17 @@
             return;
         }
         $this->saldo -= $valorSaque;
-         
+
     }
-    
+
     public function valorDeposito(float $valorDeposito): void
     {
         if ($valorDeposito < 0) {
             echo "Transaçaõ de valor ${valorDeposito}R$ não autorizada, valor negativo." . PHP_EOL;
             return;
         }
-        $this->saldo += $valorDeposito; 
-       
+        $this->saldo += $valorDeposito;
+
     }
     public function transferir(float $valorAtransferir, conta $contaDestino): void
     {
@@ -34,27 +34,34 @@
         }
         $this->saque($valorAtransferir);
         $contaDestino->valorDeposito($valorAtransferir);
-        echo 'Foi realizado a transferência de '. $valorAtransferir . ' com sucesso' . PHP_EOL;
+        echo 'Foi realizado a transferência de ' . $valorAtransferir . ' com sucesso' . PHP_EOL;
 
     }
-    public function alteraNome($nome) {
+    public function alteraNome($nome): void
+    {
         $this->nomeTitular = $nome;
     }
-    public function alteraCPF($cpf) {
+    public function alteraCPF($cpf): void
+    {
         $this->cpfTitular = $cpf;
     }
 
 
-    public function exibeSaldo() :float {
+    public function exibeSaldo(): float
+    {
         return $this->saldo
-    ;} 
-    public function exibeCPF() :string {
+        ;
+    }
+    public function exibeCPF(): string
+    {
         return $this->cpfTitular
-    ;} 
-    public function exibdeNomeTitular() :string {
+        ;
+    }
+    public function exibeNomeTitular(): string
+    {
         return $this->nomeTitular
-    ;} 
-    
+        ;
+    }
+
 }
-//require 'conta.php';
 ?>
