@@ -5,18 +5,14 @@ class conta
     private $nomeTitular;
     private $saldo = 0;
 
-    public function __construct($cpfTitular, $nomeTitular)
+    public function __construct($cpfTitular, $nome)
     {
-        echo "criando conta";
+        echo "criando conta" . PHP_EOL;
+    $this->validaNomeTitular($nome);
     $this->cpfTitular = $cpfTitular;
-        if (strlen($nomeTitular) <= 5) {
-            echo "Você precisa colocar sobrenome" . PHP_EOL;
-            return;
-        }
-    $this->nomeTitular = $nomeTitular;
     ;}
 
-    private function validaNome($nome) {
+    private function validaNomeTitular($nome) {
         if (strlen($nome) <= 5) {
             echo "Nome deve ter pelo menos 5 caracteres" . PHP_EOL;
         return;}
@@ -71,7 +67,7 @@ class conta
         return $this->saldo
         ;
     }
-    public function exibeCPF(): string
+    public function exibeCPF()
     {
         return $this->cpfTitular
         ;
