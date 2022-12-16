@@ -5,6 +5,24 @@ class conta
     private $nomeTitular;
     private $saldo = 0;
 
+    public function __construct($cpfTitular, $nomeTitular)
+    {
+        echo "criando conta";
+    $this->cpfTitular = $cpfTitular;
+        if (strlen($nomeTitular) <= 5) {
+            echo "Você precisa colocar sobrenome" . PHP_EOL;
+            return;
+        }
+    $this->nomeTitular = $nomeTitular;
+    ;}
+
+    private function validaNome($nome) {
+        if (strlen($nome) <= 5) {
+            echo "Nome deve ter pelo menos 5 caracteres" . PHP_EOL;
+        return;}
+    $this->nomeTitular = $nome
+    ;}
+
 
     //Metodo saque
     public function saque(float $valorSaque): void
@@ -16,7 +34,7 @@ class conta
         $this->saldo -= $valorSaque;
 
     }
-
+    //metodo de deposito
     public function valorDeposito(float $valorDeposito): void
     {
         if ($valorDeposito < 0) {
@@ -26,6 +44,7 @@ class conta
         $this->saldo += $valorDeposito;
 
     }
+    // metodo transferir
     public function transferir(float $valorAtransferir, conta $contaDestino): void
     {
         if ($valorAtransferir > $this->saldo) {
