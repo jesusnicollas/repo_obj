@@ -1,45 +1,21 @@
 <?php
     require 'conta.php';
+    require 'Titular.php';
 
-   // $usuarioUm = new conta('Nico','111.111.005-00');
-   // $usuarioUm->valorDeposito(-500);
-   // $usuarioUm->valorDeposito(10000); 
-   // $usuarioUm->alteraNome('');
-   // $usuarioUm->alteraCPF();
-   // $usuarioUm->saque(10);
-
-    $usuarioDois = new conta(cpfTitular:'444.444.444-10', nome:'italooo');
-    new conta(cpfTitular:'444.444.444-10', nome:'italo00');
-    $usuarioTres = new conta(cpfTitular:'444.444.444-10', nome:'italo00');
+    $usuarioUm = new conta( new Titular ('444.444.444-10', 'italooo'));
+    $usuarioDois = new conta( new Titular ('124.634.544-10', 'itaaalaa'));
+    $usuarioTres = new conta(new Titular ('923.456.789-10', 'italo00'));
     unset($usuarioTres);
-    $usuarioDois->valorDeposito(10000); 
-    echo $usuarioDois->exibeNomeTitular() . PHP_EOL;
-    echo $usuarioDois->exibeCPF() . PHP_EOL;
-    echo $usuarioDois->exibeSaldo() . PHP_EOL;
+   //$usuarioDois->valorDeposito(10000);
+  // $usuarioDois->exibeCpf();
+  // $usuarioDois->exibeNome();
+    var_dump($usuarioUm);
+    var_dump($usuarioDois);
+    var_dump($usuarioTres);
+    // echo $usuarioUm->Titular->exibeNomeTitular() . PHP_EOL;
+    // echo $usuarioDois->Titular->exibeNomeTitular() . PHP_EOL;
+    // echo $usuarioDois->Titular->exibeSaldo() . PHP_EOL;
     echo "Número de contas no banco: " . conta::exibecontadorContas() . PHP_EOL;
-    echo 'número de contas deletadas: ' . conta::exibecontadorDeletes();
-//    $usuarioDois->alteraNome();
-//    $usuarioDois->alteraCPF();
-//    var_dump( $usuarioDois);
-//    $usuarioDois->alteraCPF('555.555.404-10');
-//    $usuarioDois->transferir(5000, $usuarioUm);
-   // var_dump( $usuarioDois);
-   // var_dump($usuarioUm);  
-//$exibidorSaldo = 'Saldo: ' . $usuarioUm->exibeSaldo();
-//echo $exibidorSaldo;
+    echo "número de contas deletadas: " . conta::exibecontadorDeletes();
 
 ?>
-
-<html>
-    <head>
-        <title> site do Nicollas</title>
-    </head>
-    <body>
-        <p>
-            <div>
-        <?php PHP_EOL;
-    //    echo 'valor saldo do usuário 1:' . $usuarioUm->exibeSaldo();
-        ?>
-        </div>
-    </body>
-</html>
