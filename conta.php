@@ -1,21 +1,22 @@
 <?php
+
 class conta
 {
-    private $cpfTitular;
-    private $nomeTitular;
+    #dados de objeto
+    private Titular $titular;
     private $saldo = 0;
+    #dados estáticos
     private static $contadorContas = 0;
     private static $contadorDeletes = 0;
 
 
 
 
-    public function __construct($cpfTitular, $nome)
+    public function __construct($titular)
     {
-        echo "criando conta" . PHP_EOL;
-    $this->validaNomeTitular($nome);
-    $this->cpfTitular = $cpfTitular;
-    self::$contadorContas ++
+    #    echo "criando conta" . PHP_EOL;
+        $this->titular = $titular;
+        self::$contadorContas ++
     ;}
     
     public function __destruct()
@@ -25,12 +26,7 @@ class conta
     }
 
 
-    private function validaNomeTitular($nome) {
-        if (strlen($nome) <= 5) {
-            echo "Nome deve ter pelo menos 5 caracteres" . PHP_EOL;
-        return;}
-    $this->nomeTitular = $nome
-    ;}
+
 
 
     //Metodo saque
@@ -65,38 +61,27 @@ class conta
         echo 'Foi realizado a transferência de ' . $valorAtransferir . ' com sucesso' . PHP_EOL;
 
     }
-    public function alteraNome($nome): void
-    {
-        $this->nomeTitular = $nome;
-    }
-    public function alteraCPF($cpf): void
-    {
-        $this->cpfTitular = $cpf;
-    }
-
-
+    # metodos da classe Conta
     public function exibeSaldo(): float
     {
         return $this->saldo
         ;
     }
-    public function exibeCPF()
-    {
-        return $this->cpfTitular
-        ;
-    }
-    public function exibeNomeTitular(): string
-    {
-        return $this->nomeTitular
-        ;
-    }
-
+    # Metodos Getters estáticos
     public static function exibecontadorContas() :int{
-        return self::$contadorContas;
-     }
+       return self::$contadorContas;
+    }
 
-     public static function exibecontadorDeletes() :int{
+    public static function exibecontadorDeletes() :int{
         return self::$contadorDeletes;
      }
+
+     public function exibeCpf() :string {
+        return $this->Titular->cpfTitular;
+    }
+    public function exibeNome() :string {
+        return $this->Titular->nomeTitular;
+    }
 }
+
 ?>
