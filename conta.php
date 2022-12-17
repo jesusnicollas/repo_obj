@@ -89,7 +89,7 @@ class conta
         ;
     }
 
-    public function exibeContador(){
+    public static function exibeContador() :int{
         return self::$contador;
      }
  
