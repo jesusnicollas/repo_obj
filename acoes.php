@@ -9,13 +9,15 @@
    // $usuarioUm->saque(10);
 
     $usuarioDois = new conta(cpfTitular:'444.444.444-10', nome:'italooo');
-    $usuarioUm = new conta(cpfTitular:'444.444.444-10', nome:'italo00');
+    new conta(cpfTitular:'444.444.444-10', nome:'italo00');
     $usuarioTres = new conta(cpfTitular:'444.444.444-10', nome:'italo00');
+    unset($usuarioTres);
     $usuarioDois->valorDeposito(10000); 
     echo $usuarioDois->exibeNomeTitular() . PHP_EOL;
     echo $usuarioDois->exibeCPF() . PHP_EOL;
     echo $usuarioDois->exibeSaldo() . PHP_EOL;
-    echo conta::exibeContador();
+    echo "Número de contas no banco: " . conta::exibecontadorContas() . PHP_EOL;
+    echo 'número de contas deletadas: ' . conta::exibecontadorDeletes();
 //    $usuarioDois->alteraNome();
 //    $usuarioDois->alteraCPF();
 //    var_dump( $usuarioDois);
