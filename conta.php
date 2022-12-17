@@ -4,7 +4,8 @@ class conta
     private $cpfTitular;
     private $nomeTitular;
     private $saldo = 0;
-    private static $contador = 0;
+    private static $contadorContas = 0;
+    private static $contadorDeletes = 0;
 
 
 
@@ -14,12 +15,13 @@ class conta
         echo "criando conta" . PHP_EOL;
     $this->validaNomeTitular($nome);
     $this->cpfTitular = $cpfTitular;
-    self::$contador ++
+    self::$contadorContas ++
     ;}
     
     public function __destruct()
     {
-        self::$contador --;
+        self::$contadorContas --;
+        self::$contadorDeletes ++;
     }
 
 
@@ -89,9 +91,12 @@ class conta
         ;
     }
 
-    public static function exibeContador() :int{
-        return self::$contador;
+    public static function exibecontadorContas() :int{
+        return self::$contadorContas;
      }
- 
+
+     public static function exibecontadorDeletes() :int{
+        return self::$contadorDeletes;
+     }
 }
 ?>
