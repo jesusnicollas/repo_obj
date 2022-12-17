@@ -9,10 +9,12 @@
    // $usuarioUm->saque(10);
 
     $usuarioDois = new conta(cpfTitular:'444.444.444-10', nome:'italooo');
+   // $usuarioUm = new conta(cpfTitular:'444.444.444-10', nome:'italo00');
     $usuarioDois->valorDeposito(10000); 
     echo $usuarioDois->exibeNomeTitular() . PHP_EOL;
     echo $usuarioDois->exibeCPF() . PHP_EOL;
     echo $usuarioDois->exibeSaldo() . PHP_EOL;
+    echo conta::exibeContador();
 //    $usuarioDois->alteraNome();
 //    $usuarioDois->alteraCPF();
 //    var_dump( $usuarioDois);

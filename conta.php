@@ -4,13 +4,24 @@ class conta
     private $cpfTitular;
     private $nomeTitular;
     private $saldo = 0;
+    private static $contador = 0;
+
+
+
 
     public function __construct($cpfTitular, $nome)
     {
         echo "criando conta" . PHP_EOL;
     $this->validaNomeTitular($nome);
     $this->cpfTitular = $cpfTitular;
+    self::$contador ++
     ;}
+    
+    public function __destruct()
+    {
+        self::$contador --;
+    }
+
 
     private function validaNomeTitular($nome) {
         if (strlen($nome) <= 5) {
@@ -78,5 +89,9 @@ class conta
         ;
     }
 
+    public function exibeContador(){
+        return self::$contador;
+     }
+ 
 }
 ?>
