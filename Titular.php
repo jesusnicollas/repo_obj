@@ -2,12 +2,12 @@
 
 class Titular {
     #dados da classe Titular
-    private string $cpfTitular;
+    private $cpf;
     private string $nomeTitular;
     
     #metodo Contrutor
-    public function __construct (string $cpfTitular, string $nomeTitular) {
-    $this->cpfTitular = $cpfTitular;
+    public function __construct ( CPF $cpf,string $nomeTitular) {
+    $this->cpf = $cpf;
     $this->validaNome($nomeTitular);
     $this->nomeTitular = $nomeTitular;
     }

@@ -1,21 +1,25 @@
 <?php
     require 'conta.php';
     require 'Titular.php';
+    require 'Cpf.php';
 
-    $usuarioUm = new conta( new Titular ('444.444.444-10', 'italooo'));
-    $usuarioDois = new conta( new Titular ('124.634.544-10', 'itaaalaa'));
-    $usuarioTres = new conta(new Titular ('923.456.789-10', 'italo00'));
+    $cpftitular1 = new CPF('111.111.005-00');
+    $titular1 = new Titular ($cpftitular1,'italooo');
+    $usuarioUm = new conta ($cpftitular1, $titular1);
+    $usuario2 = new Titular ('124.634.544-10', 'itaaalaa');
+    $usuarioDois = new conta($usuario2);
+    $usuario3 = new Titular ('923.456.789-10', 'iaatalo00');
+    $usuarioTres = new conta($usuario3);
     unset($usuarioTres);
-   //$usuarioDois->valorDeposito(10000);
-  // $usuarioDois->exibeCpf();
-  // $usuarioDois->exibeNome();
+    //$usuarioDois->valorDeposito(10000);
+    // $usuarioDois->exibeCpf();
+    // $usuarioDois->exibeNome();
     var_dump($usuarioUm);
     var_dump($usuarioDois);
-    var_dump($usuarioTres);
     // echo $usuarioUm->Titular->exibeNomeTitular() . PHP_EOL;
     // echo $usuarioDois->Titular->exibeNomeTitular() . PHP_EOL;
     // echo $usuarioDois->Titular->exibeSaldo() . PHP_EOL;
     echo "Número de contas no banco: " . conta::exibecontadorContas() . PHP_EOL;
-    echo "número de contas deletadas: " . conta::exibecontadorDeletes();
+    echo "número de contas deletadas: " . conta::exibecontadorDeletes() . PHP_EOL;
 
 ?>
