@@ -1,6 +1,6 @@
 <?php
 
-class conta
+class Conta
 {
     #dados de objeto
     private Titular $titular;
@@ -82,6 +82,9 @@ class conta
     public function exibeNome() :string {
         return $this->Titular->nomeTitular;
     }
+    //public function exibeRua() :string {
+    //    return $this->Conta->Endereco->rua;
+    //}
 }
 
 ?>
